@@ -9,12 +9,13 @@ module.exports = WebpackMerge(WebpackConfig, {
     hot: true,
     contentBase: '../dist',
     proxy: {
-      '/api': {
-        target: 'xxxx',
+      '/richinfohr': {
+        target: 'http://192.168.4.105:8080/richinfohr',
+        // target: 'http://192.168.40.75:8088/richinfohr/',
         ws: true,
         changeOrigin: true,
         pathRewrite: {
-          '^/xxx': ''
+          '^/richinfohr': ''
         }
       }
     }

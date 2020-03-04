@@ -5,6 +5,8 @@ const OptimizeCssAssetsplugin = require('optimize-css-assets-webpack-plugin');
 const CompressionPlugin = require('compression-webpack-plugin');
 const PreloadWebpackPlugin = require('preload-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
+const BoundleAnalyzerPlugin = require('webpack-bundle-analyzer')
+  .BundleAnalyzerPlugin; //打包分析
 module.exports = WebpackMerge(WebpackConfig, {
   mode: 'production',
   // devtool: "cheap-module-source-map", //正式环境sorce map
@@ -15,12 +17,17 @@ module.exports = WebpackMerge(WebpackConfig, {
         terserOptions: {
           cache: true,
           compress: {
-            warnings: false,
-            drop_console: false,
-            drop_debugger: false
+            warnings: true,
+            drop_console: true,
+            drop_debugger: true
           }
         },
         extractComments: true
+      }),
+      // 打包工具分析，windows需要安装 npm i -D cross-env
+      new BoundleAnalyzerPlugin({
+        analyzerHost: '127.0.0.1',
+        analyzerPort: 8888
       }),
       // new PreloadWebpackPlugin({ // 预加载
       //   rel: "preload",
@@ -34,7 +41,7 @@ module.exports = WebpackMerge(WebpackConfig, {
           safe: true,
           discardComments: { removeAll: true }
         },
-        canPrint: true
+        canPrint: false
       }), //压缩css
       new CompressionPlugin({
         //开启gzip压缩
