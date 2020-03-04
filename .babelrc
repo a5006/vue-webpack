@@ -1,0 +1,14 @@
+{
+  "presets": [
+    ["@babel/preset-env", { "modules": false }], //webpack4的mode如果为production默认启动treeshaking，但是必须是es6模块，因此不让babel把它转换成common.js
+    "@vue/babel-preset-jsx" // jsx处理
+  ],
+  "plugins": [
+    [
+      "@babel/plugin-transform-runtime",
+      {
+        "corejs": 3
+      }
+    ]
+  ]
+}
