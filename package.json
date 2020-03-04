@@ -10,6 +10,8 @@
   },
   "dependencies": {
     "@babel/polyfill": "^7.7.0",
+    "babel-runtime": "^6.26.0",
+    "core-js": "^3.6.4",
     "view-design": "^4.0.2",
     "vue": "^2.6.11"
   },

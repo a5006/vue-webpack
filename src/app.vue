@@ -12,12 +12,14 @@ export default{
   data(){
     return {
       a:12,
+      d:"test".includes("t"),
       img:require('./assets/img/d.png')
     }
   },
   components:{Index},
   mounted(){
     console.log(this.img)
+var s = "dd"
   }
 }
 </script>

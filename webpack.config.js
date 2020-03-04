@@ -190,8 +190,21 @@ module.exports = {
         {
           loader: 'babel-loader',
           options: {
-            presets: ['@babel/preset-env'],
-            cacheDirectory: true
+            presets: [
+              [
+                '@babel/preset-env',
+                {
+                  modules: false,
+                  useBuiltIns: 'usage',
+                  corejs: 3
+                }
+              ], //webpack4的mode如果为production默认启动treeshaking，但是必须是es6模块，因此不让babel把它转换成common.js
+              '@vue/babel-preset-jsx'
+            ], // jsx处理],
+            cacheDirectory: true,
+            // "plugins":[
+            //   ["@babel/plugin-transform-runtime"]
+            // ]
           }
         }
       ],
