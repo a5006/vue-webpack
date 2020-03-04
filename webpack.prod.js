@@ -7,7 +7,7 @@ const PreloadWebpackPlugin = require('preload-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 module.exports = WebpackMerge(WebpackConfig, {
   mode: 'production',
-  // devtool: "cheap-module-source-map",
+  // devtool: "cheap-module-source-map", //正式环境sorce map
   plugins: [],
   optimization: {
     minimizer: [

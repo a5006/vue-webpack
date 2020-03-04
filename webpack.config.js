@@ -78,7 +78,6 @@ module.exports = {
               name: 'css/[name].[hash:8].[ext]',
               filename: 'css/[name].[hash:8].[ext]',
               chunkFilename: '[id].css',
-
               hmr: devMode
             }
           },
@@ -156,6 +155,14 @@ module.exports = {
       template: path.resolve(__dirname, 'public/index.html'),
       baseUrl: './'
     }),
+    // new webpack.DllReferencePlugin({ //dll plugin
+    //   context: __dirname,
+    //   manifest: require('./vendor-manifest.json')
+    // }),
+    // new CopyWebpackPlugin([
+    //   // 拷贝生成的文件到dist目录 这样每次不必手动去cv
+    //   { from: 'static', to: 'static' }
+    // ]),
     // new PurgecssPlugin({ // 此处为css treeshaking，但是会影响第三方包的css加载
     //   paths: glob.sync(`${path.join(__dirname, "src")}/**/*.css`, { nodir: true }) // 不匹配目录，只匹配文件
     // }),
